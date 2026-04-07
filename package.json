@@ -1,26 +1,72 @@
 {
-  "name": "syncstay-app",
+  "name": "syncstay",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "rm -rf .next && prisma generate && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "worker": "tsx src/workers/sync-worker.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "bcryptjs": "^3.0.3",
+    "better-auth": "^1.6.0",
+    "bullmq": "^5.73.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.38.0",
+    "ioredis": "^5.10.1",
+    "lucide-react": "^1.7.0",
     "next": "16.2.2",
+    "pg": "^8.20.0",
+    "prisma": "^6.16.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.1",
+    "tailwind-merge": "^3.5.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/supertest": "^7.2.0",
+    "@vitest/coverage-v8": "^4.1.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "jsdom": "^29.0.1",
+    "supertest": "^7.2.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "vitest": "^4.1.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }
