@@ -272,7 +272,9 @@ function FileDropzone({
         handleFiles(Array.from(event.dataTransfer.files));
       }}
       className={`rounded-2xl border border-dashed p-4 transition ${
-        isDragging ? "border-[var(--accent)] bg-[var(--accent-soft)]/40" : "border-[var(--border)] bg-white/70"
+        isDragging
+          ? "border-[var(--accent)] bg-[var(--accent-soft)]/40"
+          : "border-[var(--border)] bg-[var(--surface-soft)]/70"
       }`}
     >
       <p className="text-sm font-medium text-[var(--text-primary)]">{title}</p>
@@ -321,7 +323,7 @@ function UploadPreview({ item }: { item: UploadQueueItem }) {
       <iframe
         src={`${item.previewUrl}#toolbar=0&navpanes=0&scrollbar=0`}
         title={item.file.name}
-        className="h-16 w-16 rounded-lg border border-[var(--border)] bg-white"
+        className="h-16 w-16 rounded-lg border border-[var(--border)] bg-[var(--surface-soft)]"
       />
     );
   }
@@ -685,7 +687,7 @@ export function OnboardingWizard({ user }: OnboardingWizardProps) {
 
         <div className="grid gap-2 md:grid-cols-[1fr_2fr]">
           <select
-            className="h-10 rounded-xl border border-[var(--border)] bg-white px-3 text-sm"
+            className="h-10 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/75 px-3 text-sm text-[var(--text-primary)]"
             value={kycType}
             onChange={(event) => setKycType(event.target.value as MediaAssetType)}
           >
@@ -707,7 +709,10 @@ export function OnboardingWizard({ user }: OnboardingWizardProps) {
         {kycQueue.length > 0 ? (
           <div className="space-y-2">
             {kycQueue.map((item) => (
-              <div key={item.id} className="space-y-2 rounded-xl border border-[var(--border)] bg-white/70 p-3">
+              <div
+                key={item.id}
+                className="space-y-2 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/65 p-3"
+              >
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <UploadPreview item={item} />
@@ -842,7 +847,7 @@ export function OnboardingWizard({ user }: OnboardingWizardProps) {
 
         <div className="grid gap-2 md:grid-cols-[1fr_2fr]">
           <select
-            className="h-10 rounded-xl border border-[var(--border)] bg-white px-3 text-sm"
+            className="h-10 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/75 px-3 text-sm text-[var(--text-primary)]"
             value={mediaType}
             onChange={(event) => setMediaType(event.target.value as MediaAssetType)}
           >
@@ -862,7 +867,10 @@ export function OnboardingWizard({ user }: OnboardingWizardProps) {
         {mediaQueue.length > 0 ? (
           <div className="space-y-2">
             {mediaQueue.map((item) => (
-              <div key={item.id} className="space-y-2 rounded-xl border border-[var(--border)] bg-white/70 p-3">
+              <div
+                key={item.id}
+                className="space-y-2 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/65 p-3"
+              >
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <UploadPreview item={item} />

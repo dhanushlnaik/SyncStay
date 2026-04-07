@@ -116,8 +116,13 @@ export function VerifyEmailCard({ email }: VerifyEmailCardProps) {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
-      <Card className="w-full max-w-md space-y-5">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[-9rem] top-[-10rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(153,69,255,0.35),transparent_72%)]" />
+        <div className="absolute right-[-9rem] bottom-[-8rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(20,241,149,0.18),transparent_72%)]" />
+      </div>
+
+      <Card className="relative w-full max-w-md space-y-5 border-[var(--accent)]/30">
         <div>
           <p className="font-serif text-3xl text-[var(--text-primary)]">SyncStay</p>
           <CardTitle className="mt-1">Verify your email with OTP</CardTitle>

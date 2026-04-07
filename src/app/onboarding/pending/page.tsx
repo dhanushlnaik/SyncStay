@@ -45,14 +45,14 @@ export default async function OnboardingPendingPage() {
   return (
     <main className="relative min-h-screen overflow-hidden px-4 py-10">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[-12rem] top-[-8rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(78,91,67,0.16),transparent_72%)]" />
-        <div className="absolute right-[-10rem] top-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(58,49,43,0.12),transparent_72%)]" />
-        <div className="absolute bottom-[-12rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(35,48,68,0.08),transparent_72%)]" />
+        <div className="absolute left-[-12rem] top-[-8rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(153,69,255,0.28),transparent_72%)]" />
+        <div className="absolute right-[-10rem] top-16 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(20,241,149,0.14),transparent_72%)]" />
+        <div className="absolute bottom-[-12rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(111,122,255,0.12),transparent_72%)]" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-5xl gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-        <Card className="space-y-4 border-[var(--accent)]/20 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(246,243,236,0.96))] p-7">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--accent)]/25 bg-[var(--accent-soft)] px-3 py-1 text-xs font-medium text-[var(--accent-strong)]">
+        <Card className="space-y-4 border-[var(--accent)]/30 p-7">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--accent)]/25 bg-[var(--accent-soft)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
             <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-[var(--accent)]" />
             Review Queue Active
           </div>

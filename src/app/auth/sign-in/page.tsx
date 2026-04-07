@@ -67,8 +67,13 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
-      <Card className="w-full max-w-md space-y-5">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(153,69,255,0.35),transparent_70%)]" />
+        <div className="absolute right-[-8rem] bottom-[-8rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(20,241,149,0.2),transparent_72%)]" />
+      </div>
+
+      <Card className="relative w-full max-w-md space-y-5 border-[var(--accent)]/30">
         <div>
           <p className="font-serif text-3xl text-[var(--text-primary)]">SyncStay</p>
           <CardTitle className="mt-1">Sign in to your workspace</CardTitle>

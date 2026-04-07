@@ -54,6 +54,11 @@ export async function PATCH(
       ...(parsedBody.data.endpointUrl !== undefined
         ? { endpointUrl: parsedBody.data.endpointUrl }
         : {}),
+      ...(parsedBody.data.externalHotelId !== undefined
+        ? { externalHotelId: parsedBody.data.externalHotelId }
+        : {}),
+      ...(parsedBody.data.apiKey !== undefined ? { apiKey: parsedBody.data.apiKey } : {}),
+      ...(parsedBody.data.apiSecret !== undefined ? { apiSecret: parsedBody.data.apiSecret } : {}),
       ...(parsedBody.data.settings !== undefined
         ? { settings: parsedBody.data.settings as Prisma.InputJsonValue }
         : {}),

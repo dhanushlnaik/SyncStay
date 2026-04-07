@@ -41,7 +41,7 @@ export function TopBar({ ownerName }: { ownerName: string }) {
   }
 
   return (
-    <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[var(--surface)]/95 px-6 py-3 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[var(--surface)]/90 px-6 py-3 backdrop-blur">
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="font-serif text-2xl text-[var(--text-primary)]">Lotus Haven Jaipur</p>
@@ -56,12 +56,12 @@ export function TopBar({ ownerName }: { ownerName: string }) {
             Sync all channels
           </Button>
           <Button size="sm">Simulate booking</Button>
-          <button className="rounded-xl border border-[var(--border)] p-2 text-[var(--text-secondary)]">
+          <button className="rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/70 p-2 text-[var(--text-secondary)] transition hover:text-[var(--text-primary)]">
             <Bell className="h-4 w-4" />
           </button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-2 rounded-xl border border-[var(--border)] px-3 py-2 text-left transition hover:bg-[var(--surface-soft)]">
+              <button className="flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/45 px-3 py-2 text-left transition hover:bg-[var(--surface-soft)]">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-semibold text-[var(--accent)]">
                   {ownerName.slice(0, 1).toUpperCase()}
                 </div>

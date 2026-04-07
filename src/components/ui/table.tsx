@@ -3,11 +3,11 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export function Table({ className, ...props }: React.TableHTMLAttributes<HTMLTableElement>) {
-  return <table className={cn("w-full caption-bottom text-sm", className)} {...props} />;
+  return <table className={cn("w-full caption-bottom text-sm text-[var(--text-primary)]", className)} {...props} />;
 }
 
 export function TableHeader({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) {
-  return <thead className={cn("bg-[var(--surface-soft)]", className)} {...props} />;
+  return <thead className={cn("bg-[var(--surface-soft)]/70", className)} {...props} />;
 }
 
 export function TableBody({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) {
@@ -18,7 +18,7 @@ export function TableRow({ className, ...props }: React.HTMLAttributes<HTMLTable
   return (
     <tr
       className={cn(
-        "border-b border-[var(--border)] transition-colors hover:bg-[var(--surface-soft)]",
+        "border-b border-[var(--border)] transition-colors hover:bg-[var(--surface-soft)]/70",
         className,
       )}
       {...props}

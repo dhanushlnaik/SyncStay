@@ -89,7 +89,7 @@ export function PendingStatus({ initialStatus, submittedAt }: PendingStatusProps
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="mt-5 space-y-4"
     >
-      <div className="rounded-2xl border border-[var(--border)] bg-white/70 p-4">
+      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-soft)]/55 p-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <motion.span
@@ -128,13 +128,13 @@ export function PendingStatus({ initialStatus, submittedAt }: PendingStatusProps
         </div>
 
         <div className="mt-3 grid gap-2 text-xs text-[var(--text-secondary)] md:grid-cols-3">
-          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2">
+          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface-soft)] px-3 py-2">
             1. Submission received
           </div>
-          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2">
+          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface-soft)] px-3 py-2">
             2. Compliance review in progress
           </div>
-          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2">
+          <div className="rounded-lg border border-[var(--border)] bg-[var(--surface-soft)] px-3 py-2">
             3. Activation after approval
           </div>
         </div>

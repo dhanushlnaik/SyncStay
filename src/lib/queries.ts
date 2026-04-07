@@ -145,7 +145,7 @@ export async function getBookingTrends(hotelId: string) {
 }
 
 export async function getChannelHealth(hotelId: string) {
-  const [configs, failures] = await Promise.all([
+  const [configs, failures, testLogs] = await Promise.all([
     prisma.hotelPlatformConfig.findMany({
       where: { hotelId },
       include: { roomMappings: true },
@@ -162,6 +162,25 @@ export async function getChannelHealth(hotelId: string) {
         _all: true,
       },
     }),
+    prisma.syncLog.findMany({
+      where: {
+        hotelId,
+        action: "FULL_SYNC",
+        correlationId: {
+          startsWith: "healthcheck:",
+        },
+      },
+      select: {
+        id: true,
+        hotelPlatformConfigId: true,
+        status: true,
+        createdAt: true,
+        errorMessage: true,
+        responsePayload: true,
+      },
+      orderBy: { createdAt: "desc" },
+      take: 300,
+    }),
   ]);
 
   const failMap = new Map(
@@ -170,10 +189,47 @@ export async function getChannelHealth(hotelId: string) {
       .map((item) => [item.hotelPlatformConfigId as string, item._count._all]),
   );
 
+  const historyByChannel = new Map<
+    string,
+    Array<{
+      id: string;
+      status: string;
+      createdAt: Date;
+      errorMessage: string | null;
+      latencyMs: number | null;
+    }>
+  >();
+
+  for (const row of testLogs) {
+    if (!row.hotelPlatformConfigId) {
+      continue;
+    }
+    const current = historyByChannel.get(row.hotelPlatformConfigId) ?? [];
+    if (current.length >= 5) {
+      continue;
+    }
+    const latencyCandidate =
+      row.responsePayload && typeof row.responsePayload === "object"
+        ? (row.responsePayload as { latencyMs?: unknown }).latencyMs
+        : null;
+    current.push({
+      id: row.id,
+      status: row.status,
+      createdAt: row.createdAt,
+      errorMessage: row.errorMessage,
+      latencyMs:
+        typeof latencyCandidate === "number" && Number.isFinite(latencyCandidate)
+          ? latencyCandidate
+          : null,
+    });
+    historyByChannel.set(row.hotelPlatformConfigId, current);
+  }
+
   return configs.map((config) => ({
     ...config,
     failuresLast24h: failMap.get(config.id) ?? 0,
     capabilityLabels: getPlatformCapabilityLabels(config.platform),
+    testHistory: historyByChannel.get(config.id) ?? [],
   }));
 }
 

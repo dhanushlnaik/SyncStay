@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f6f1;
-  --surface: #ffffff;
-  --surface-soft: #f3efe7;
-  --border: #e8e2d8;
+  --background: #0a0f1f;
+  --surface: #101428;
+  --surface-soft: #1a2140;
+  --surface-elevated: #232c52;
+  --border: #2b3768;
 
-  --text-primary: #1f1a17;
-  --text-secondary: #6b6257;
-  --text-muted: #8c8377;
+  --text-primary: #eef2ff;
+  --text-secondary: #b8c2ef;
+  --text-muted: #8993be;
 
-  --accent: #4e5b43;
-  --accent-strong: #3f4c36;
-  --accent-soft: #e6ecdf;
+  --accent: #9945ff;
+  --accent-cyan: #80ecff;
+  --accent-strong: #7d3cdb;
+  --accent-soft: rgba(153, 69, 255, 0.18);
 
-  --success: #4f6f52;
-  --success-soft: #e6efe7;
-  --warning: #a56a2a;
-  --warning-soft: #f5ecdf;
-  --error: #a34739;
-  --error-soft: #f5e6e3;
+  --success: #14f195;
+  --success-soft: rgba(20, 241, 149, 0.14);
+  --warning: #f7b733;
+  --warning-soft: rgba(247, 183, 51, 0.14);
+  --error: #ff6b8a;
+  --error-soft: rgba(255, 107, 138, 0.16);
 }
 
 @theme inline {
@@ -32,9 +34,46 @@
 
 body {
   font-family: var(--font-sans), sans-serif;
-  background: var(--background);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #090d1a 0%, var(--background) 100%);
+  color: var(--text-primary);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .font-serif {
   font-family: var(--font-heading), serif;
+}
+
+::selection {
+  background: rgba(153, 69, 255, 0.32);
+  color: #f7f8ff;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(137, 147, 190, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(137, 147, 190, 0.14) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+.scrollbar-subtle {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(137, 147, 190, 0.45) transparent;
+}
+
+.scrollbar-subtle::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-subtle::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(137, 147, 190, 0.35);
+}
+
+.scrollbar-subtle::-webkit-scrollbar-track {
+  background: transparent;
 }

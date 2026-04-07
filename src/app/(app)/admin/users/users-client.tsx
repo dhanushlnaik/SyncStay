@@ -325,7 +325,7 @@ export function AdminUsersConsole({ initialUsers, initialAuditLogs }: AdminUsers
                     <div className="space-y-2">
                       <Badge variant={roleBadgeVariant(user.role)}>{user.role}</Badge>
                       <select
-                        className="h-9 min-w-[11rem] rounded-xl border border-[var(--border)] bg-white px-3 text-sm text-[var(--text-primary)]"
+                        className="h-9 min-w-[11rem] rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/75 px-3 text-sm text-[var(--text-primary)]"
                         value={roleDrafts[user.id] ?? user.role}
                         onChange={(event) =>
                           setRoleDrafts((prev) => ({
@@ -360,7 +360,7 @@ export function AdminUsersConsole({ initialUsers, initialAuditLogs }: AdminUsers
                         {user.ownerApprovalStatus}
                       </Badge>
                       <select
-                        className="h-9 min-w-[11rem] rounded-xl border border-[var(--border)] bg-white px-3 text-sm text-[var(--text-primary)]"
+                        className="h-9 min-w-[11rem] rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/75 px-3 text-sm text-[var(--text-primary)]"
                         value={approvalDrafts[user.id] ?? user.ownerApprovalStatus}
                         onChange={(event) =>
                           setApprovalDrafts((prev) => ({

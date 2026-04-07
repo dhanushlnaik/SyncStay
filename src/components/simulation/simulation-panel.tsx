@@ -137,7 +137,7 @@ export function SimulationPanel({
         <label className="space-y-1 text-sm">
           <span className="text-[var(--text-secondary)]">Room Type</span>
           <select
-            className="h-10 w-full rounded-xl border border-[var(--border)] bg-white px-3"
+            className="h-10 w-full rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/75 px-3 text-sm text-[var(--text-primary)]"
             value={roomTypeId}
             onChange={(event) => setRoomTypeId(event.target.value)}
           >
@@ -152,7 +152,7 @@ export function SimulationPanel({
         <label className="space-y-1 text-sm">
           <span className="text-[var(--text-secondary)]">Channel</span>
           <select
-            className="h-10 w-full rounded-xl border border-[var(--border)] bg-white px-3"
+            className="h-10 w-full rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/75 px-3 text-sm text-[var(--text-primary)]"
             value={bookingSource}
             onChange={(event) => setBookingSource(event.target.value)}
           >

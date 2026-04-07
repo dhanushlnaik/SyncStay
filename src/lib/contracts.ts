@@ -62,6 +62,9 @@ export const channelUpdateSchema = z.object({
   isEnabled: z.boolean().optional(),
   status: z.enum(["CONNECTED", "DISCONNECTED", "ERROR", "PENDING"]).optional(),
   endpointUrl: z.string().url().nullable().optional(),
+  externalHotelId: z.string().min(1).nullable().optional(),
+  apiKey: z.string().min(1).nullable().optional(),
+  apiSecret: z.string().min(1).nullable().optional(),
   settings: z.record(z.string(), z.unknown()).optional(),
 });
 

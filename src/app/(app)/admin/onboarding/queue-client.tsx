@@ -338,7 +338,10 @@ export function AdminOnboardingQueue() {
                   ) : (
                     <div className="space-y-2">
                       {details.onboarding.user.propertyRegistrations.map((property) => (
-                        <div key={property.id} className="rounded-xl border border-[var(--border)] bg-white p-3">
+                        <div
+                          key={property.id}
+                          className="rounded-xl border border-[var(--border)] bg-[var(--surface-soft)]/65 p-3"
+                        >
                           <div className="flex flex-wrap items-center justify-between gap-2">
                             <p className="text-sm font-medium text-[var(--text-primary)]">
                               {property.displayName}
@@ -371,7 +374,10 @@ export function AdminOnboardingQueue() {
                   ) : (
                     <div className="space-y-2">
                       {details.auditLogs.map((log) => (
-                        <div key={log.id} className="rounded-lg border border-[var(--border)] bg-white p-2">
+                        <div
+                          key={log.id}
+                          className="rounded-lg border border-[var(--border)] bg-[var(--surface-soft)]/65 p-2"
+                        >
                           <p className="text-xs font-medium uppercase tracking-wide text-[var(--text-secondary)]">
                             {log.action}
                           </p>
